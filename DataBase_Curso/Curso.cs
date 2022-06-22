@@ -30,7 +30,6 @@ namespace DataBase_Curso
             MySqlDataAdapter adap = new MySqlDataAdapter(comd);
             adap.Fill(DT);
             CN.Close();
-
             return DT;
         }
 
@@ -42,7 +41,7 @@ namespace DataBase_Curso
         private void Btneliminar_Click(object sender, EventArgs e)
         {
             CN.Open();
-            string ELIMINAR = "DELETE FROM curso WHERE `ID_CURSO` = '"+ TxtId_Curso.Text + "'";
+            string ELIMINAR = "DELETE FROM curso WHERE `ID_CURSO` = '" + TxtId_Curso.Text + "'";
             MySqlCommand comd = new MySqlCommand(ELIMINAR, CN);
             comd.Parameters.AddWithValue("id_curso", TxtId_Curso.Text);
             comd.ExecuteNonQuery();
@@ -54,7 +53,7 @@ namespace DataBase_Curso
         private void BtnGuardarDataCurso_Click(object sender, EventArgs e)
         {
             CN.Open();
-            string insertar = "INSERT INTO `curso`(`ID_CURSO`, `NOMBRE`, `INSTRUCTOR`,`APELLIDOS INSTRUCTOR`) VALUES ('"+TxtId_Curso.Text+"','"+TxtnameCurso.Text+"','"+TxtnombreInstructor.Text+"', '"+TxtapellidosInstructor.Text+"')";
+            string insertar = "INSERT INTO `curso`(`ID_CURSO`, `NOMBRE`, `INSTRUCTOR`,`APELLIDOS INSTRUCTOR`) VALUES ('" + TxtId_Curso.Text + "','" + TxtnameCurso.Text + "','" + TxtnombreInstructor.Text + "', '" + TxtapellidosInstructor.Text + "')";
             MySqlCommand ncomd = new MySqlCommand(insertar, CN);
 
             ncomd.Parameters.AddWithValue("ID_CURSO", TxtId_Curso.Text);
@@ -73,7 +72,7 @@ namespace DataBase_Curso
         private void Btnagregar_Click(object sender, EventArgs e)
         {
             CN.Open();
-            string AGREGAR = "UPDATE `curso` SET `ID_CURSO`='" + TxtId_Curso.Text + "',`NOMBRE`='" + TxtnameCurso.Text + "',`INSTRUCTOR`='"+TxtnombreInstructor.Text+"',`APELLIDOS INSTRUCTOR`='"+TxtapellidosInstructor.Text+"' WHERE 1";
+            string AGREGAR = "UPDATE `curso` SET `ID_CURSO`='" + TxtId_Curso.Text + "',`NOMBRE`='" + TxtnameCurso.Text + "',`INSTRUCTOR`='" + TxtnombreInstructor.Text + "',`APELLIDOS INSTRUCTOR`='" + TxtapellidosInstructor.Text + "' WHERE 1";
 
         }
     }
